@@ -30,7 +30,7 @@ const SKILLS = [
   { name: "Flutter", icon: <Smartphone className="w-5 h-5" />, category: "Mobile" },
   { name: "Dart", icon: <Code2 className="w-5 h-5" />, category: "Mobile" },
   { name: "Kotlin (Basic)", icon: <Cpu className="w-5 h-5" />, category: "Mobile" },
-  { name: "Firebase/Firestore", icon: <Cloud className="w-5 h-5" />, category: "Backend" },
+  { name: "Firebase/ Firestore", icon: <Cloud className="w-5 h-5" />, category: "Backend" },
   { name: "SQLite", icon: <Database className="w-5 h-5" />, category: "Database" },
   { name: "Provider", icon: <Layers className="w-5 h-5" />, category: "Mobile" },
   { name: "Bloc/Cubit", icon: <Layers className="w-5 h-5" />, category: "Mobile" },
@@ -195,7 +195,7 @@ export default function App() {
             </div>
             <div>
               <h3 className="font-bold text-xl text-[#F3F4F4]">Personal Info</h3>
-              <p className="text-sm text-[#F3F4F4]/50 font-medium">Based in India • Open to remote work</p>
+              <p className="text-sm text-[#F3F4F4]/50 font-medium">Based in India • Open to work</p>
             </div>
           </motion.div>
 
@@ -229,7 +229,7 @@ export default function App() {
             </div>
             <div>
               <h3 className="font-bold text-xl text-[#F3F4F4]">Experience</h3>
-              <p className="text-sm text-[#F3F4F4]/50 font-medium">Building Mobile Apps since 2021</p>
+              <p className="text-sm text-[#F3F4F4]/50 font-medium">Building Mobile Apps since 2024</p>
             </div>
           </motion.div>
         </section>
