@@ -81,85 +81,91 @@ export default function App() {
   const filteredSkills = activeTab === "all" ? SKILLS : SKILLS.filter(s => s.category.toLowerCase() === activeTab.toLowerCase());
 
   return (
-    <div className="min-h-screen bg-[#37353E] text-white font-sans selection:bg-[#D3DAD9]/30">
+    <div className="min-h-screen bg-[#5E0006] text-[#EED9B9] font-sans selection:bg-[#EED9B9]/30">
       {/* Background Gradient */}
       <div className="fixed inset-0 pointer-events-none overflow-hidden">
-        <div className="absolute top-[-10%] left-[-10%] w-[40%] h-[40%] rounded-full bg-white/5 blur-[120px]" />
-        <div className="absolute bottom-[-10%] right-[-10%] w-[40%] h-[40%] rounded-full bg-[#715A5A]/10 blur-[120px]" />
+        <div className="absolute top-[-10%] left-[-10%] w-[40%] h-[40%] rounded-full bg-[#EED9B9]/5 blur-[120px]" />
+        <div className="absolute bottom-[-10%] right-[-10%] w-[40%] h-[40%] rounded-full bg-[#D53E0F]/10 blur-[120px]" />
       </div>
 
       {/* Navigation */}
-      <nav className="sticky top-0 z-50 backdrop-blur-md bg-[#37353E]/80 border-b border-[#715A5A]/30">
+      <nav className="sticky top-0 z-50 backdrop-blur-md bg-[#5E0006]/80 border-b border-[#D53E0F]/30">
         <div className="max-w-7xl mx-auto px-6 h-16 flex items-center justify-between">
           <motion.div 
             initial={{ opacity: 0, x: -20 }}
             animate={{ opacity: 1, x: 0 }}
             className="flex items-center gap-2"
           >
-            <div className="w-8 h-8 rounded-lg bg-[#D3DAD9] flex items-center justify-center">
-              <Code2 className="w-5 h-5 text-[#37353E]" />
+            <div className="w-8 h-8 rounded-lg bg-[#EED9B9] flex items-center justify-center shadow-lg shadow-[#EED9B9]/20">
+              <Code2 className="w-5 h-5 text-[#5E0006]" />
             </div>
-            <span className="font-bold text-lg tracking-tight text-white">Portfolio</span>
+            <span className="font-bold text-lg tracking-tight text-[#EED9B9]">Portfolio</span>
           </motion.div>
           
           <div className="hidden md:flex items-center gap-8">
             {["About", "Skills", "Projects", "Experience", "Contact"].map((item) => (
-              <a 
+              <motion.a 
+                whileHover={{ y: -2 }}
                 key={item} 
                 href={`#${item.toLowerCase()}`}
-                className="text-sm font-medium text-white/60 hover:text-white transition-colors"
+                className="text-sm font-medium text-[#EED9B9]/60 hover:text-[#EED9B9] transition-colors"
               >
                 {item}
-              </a>
+              </motion.a>
             ))}
           </div>
 
           <motion.button
-            whileHover={{ scale: 1.05 }}
+            whileHover={{ scale: 1.05, backgroundColor: "#D53E0F" }}
             whileTap={{ scale: 0.95 }}
-            className="px-4 py-2 rounded-full bg-[#D3DAD9] text-[#37353E] text-sm font-semibold shadow-lg shadow-[#D3DAD9]/20 hover:bg-[#D3DAD9]/90 transition-all"
+            className="px-4 py-2 rounded-full bg-[#EED9B9] text-[#5E0006] text-sm font-bold shadow-lg shadow-[#EED9B9]/10 hover:text-white transition-all"
           >
             Hire Me
           </motion.button>
         </div>
       </nav>
 
-      <main className="max-w-7xl mx-auto px-6 py-12">
+      <motion.main 
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{ duration: 0.8 }}
+        className="max-w-7xl mx-auto px-6 py-12"
+      >
         {/* Hero Section */}
         <section id="about" className="py-20 flex flex-col items-center text-center">
           <motion.div
-            initial={{ opacity: 0, scale: 0.9 }}
+            initial={{ opacity: 0, scale: 0.8 }}
             animate={{ opacity: 1, scale: 1 }}
-            transition={{ duration: 0.5 }}
+            transition={{ type: "spring", stiffness: 100 }}
             className="mb-8 relative"
           >
-            <div className="w-32 h-32 rounded-3xl overflow-hidden border-4 border-[#44444E] shadow-2xl relative z-10">
+            <div className="w-32 h-32 rounded-3xl overflow-hidden border-4 border-[#9B0F06] shadow-2xl relative z-10 p-1 bg-[#9B0F06]">
               <img 
                 src="https://picsum.photos/seed/flutterdev/200/200" 
                 alt="Profile" 
-                className="w-full h-full object-cover grayscale brightness-90 hover:grayscale-0 transition-all duration-500"
+                className="w-full h-full rounded-2xl object-cover grayscale brightness-110 hover:grayscale-0 transition-all duration-700 hover:scale-110"
                 referrerPolicy="no-referrer"
               />
             </div>
-            <div className="absolute -inset-4 bg-white/10 blur-2xl rounded-full" />
+            <div className="absolute -inset-4 bg-[#D53E0F]/20 blur-2xl rounded-full animate-pulse" />
           </motion.div>
 
           <motion.h1 
-            initial={{ opacity: 0, y: 20 }}
+            initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.2 }}
-            className="text-5xl md:text-7xl font-bold tracking-tight mb-6 text-white"
+            transition={{ delay: 0.2, type: "spring" }}
+            className="text-5xl md:text-7xl font-black tracking-tighter mb-6 text-[#EED9B9]"
           >
-            Hi, I'm <span className="text-transparent bg-clip-text bg-gradient-to-r from-white to-[#D3DAD9]">Ritesh Kumar</span>
+            Hi, I'm <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#EED9B9] to-[#D53E0F]">Ritesh Kumar</span>
           </motion.h1>
 
           <motion.p 
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.3 }}
-            className="text-xl text-white/70 max-w-2xl leading-relaxed mb-10"
+            className="text-xl text-[#EED9B9]/70 max-w-2xl leading-relaxed mb-10"
           >
-            A motivated <span className="text-[#D3DAD9] font-semibold">Flutter Developer</span> with clinical experience building mobile applications using Firebase, REST APIs, and advanced State Management. Seeking opportunities to contribute to real-world projects.
+            A motivated <span className="text-[#D53E0F] font-bold">Flutter Developer</span> with clinical experience building mobile applications using Firebase, REST APIs, and advanced State Management. Seeking opportunities to contribute to real-world projects.
           </motion.p>
 
           <motion.div 
@@ -168,56 +174,76 @@ export default function App() {
             transition={{ delay: 0.4 }}
             className="flex flex-wrap justify-center gap-4"
           >
-            <a href="https://github.com/riteshrawat999" target="_blank" rel="noopener noreferrer" className="flex items-center gap-2 px-6 py-3 rounded-xl bg-[#44444E] hover:bg-[#715A5A] transition-colors border border-[#715A5A]/30 text-white">
+            <motion.a 
+              whileHover={{ scale: 1.05, backgroundColor: "#9B0F06" }}
+              href="https://github.com/riteshrawat999" target="_blank" rel="noopener noreferrer" className="flex items-center gap-2 px-6 py-3 rounded-xl bg-[#5E0006] transition-colors border border-[#D53E0F]/30 text-[#EED9B9] shadow-xl"
+            >
               <Github className="w-5 h-5" /> GitHub
-            </a>
-            <a href="https://linkedin.com/in/ritesh-flutter" target="_blank" rel="noopener noreferrer" className="flex items-center gap-2 px-6 py-3 rounded-xl bg-[#44444E] hover:bg-[#715A5A] transition-colors border border-[#715A5A]/30 text-white">
+            </motion.a>
+            <motion.a 
+              whileHover={{ scale: 1.05, backgroundColor: "#9B0F06" }}
+              href="https://linkedin.com/in/ritesh-flutter" target="_blank" rel="noopener noreferrer" className="flex items-center gap-2 px-6 py-3 rounded-xl bg-[#5E0006] transition-colors border border-[#D53E0F]/30 text-[#EED9B9] shadow-xl"
+            >
               <Linkedin className="w-5 h-5" /> LinkedIn
-            </a>
-            <a href="mailto:ritesh.flutter@gmail.com" className="flex items-center gap-2 px-6 py-3 rounded-xl bg-[#D3DAD9] hover:bg-[#D3DAD9]/80 transition-colors text-[#37353E] shadow-lg shadow-[#D3DAD9]/10 font-bold">
+            </motion.a>
+            <motion.a 
+              whileHover={{ scale: 1.05, scaleX: 1.1 }}
+              href="mailto:ritesh.flutter@gmail.com" className="flex items-center gap-2 px-6 py-3 rounded-xl bg-[#D53E0F] transition-colors text-white shadow-lg shadow-[#D53E0F]/20 font-bold"
+            >
               <Mail className="w-5 h-5" /> Let's Talk
-            </a>
+            </motion.a>
           </motion.div>
         </section>
 
         {/* Info Grid */}
         <section className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-20">
           <motion.div 
-            whileHover={{ y: -5 }}
-            className="p-6 rounded-2xl bg-[#44444E]/30 border border-[#715A5A]/20 flex flex-col gap-4"
+            whileHover={{ y: -10, borderColor: "#D53E0F" }}
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            className="p-8 rounded-3xl bg-[#9B0F06]/20 border border-[#D53E0F]/10 flex flex-col gap-5 backdrop-blur-sm transition-all"
           >
-            <div className="w-12 h-12 rounded-xl bg-white/10 flex items-center justify-center text-white">
-              <User className="w-6 h-6" />
+            <div className="w-14 h-14 rounded-2xl bg-[#D53E0F]/20 flex items-center justify-center text-[#D53E0F] shadow-inner">
+              <User className="w-7 h-7" />
             </div>
             <div>
-              <h3 className="font-semibold text-lg text-white">Personal Info</h3>
-              <p className="text-sm text-white/50">Based in India • Open to remote work</p>
+              <h3 className="font-bold text-xl text-[#EED9B9]">Personal Info</h3>
+              <p className="text-sm text-[#EED9B9]/50 font-medium">Based in India • Open to remote work</p>
             </div>
           </motion.div>
 
           <motion.div 
-            whileHover={{ y: -5 }}
-            className="p-6 rounded-2xl bg-[#44444E]/30 border border-[#715A5A]/20 flex flex-col gap-4"
+            whileHover={{ y: -10, borderColor: "#D53E0F" }}
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ delay: 0.1 }}
+            className="p-8 rounded-3xl bg-[#9B0F06]/20 border border-[#D53E0F]/10 flex flex-col gap-5 backdrop-blur-sm transition-all"
           >
-            <div className="w-12 h-12 rounded-xl bg-white/10 flex items-center justify-center text-white">
-              <MapPin className="w-6 h-6" />
+            <div className="w-14 h-14 rounded-2xl bg-[#D53E0F]/20 flex items-center justify-center text-[#D53E0F] shadow-inner">
+              <MapPin className="w-7 h-7" />
             </div>
             <div>
-              <h3 className="font-semibold text-lg text-white">Availability</h3>
-              <p className="text-sm text-white/50">Full-time • Project-based • Consulting</p>
+              <h3 className="font-bold text-xl text-[#EED9B9]">Availability</h3>
+              <p className="text-sm text-[#EED9B9]/50 font-medium">Full-time • Project-based • Consulting</p>
             </div>
           </motion.div>
 
           <motion.div 
-            whileHover={{ y: -5 }}
-            className="p-6 rounded-2xl bg-[#44444E]/30 border border-[#715A5A]/20 flex flex-col gap-4"
+            whileHover={{ y: -10, borderColor: "#D53E0F" }}
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ delay: 0.2 }}
+            className="p-8 rounded-3xl bg-[#9B0F06]/20 border border-[#D53E0F]/10 flex flex-col gap-5 backdrop-blur-sm transition-all"
           >
-            <div className="w-12 h-12 rounded-xl bg-white/10 flex items-center justify-center text-white">
-              <Calendar className="w-6 h-6" />
+            <div className="w-14 h-14 rounded-2xl bg-[#D53E0F]/20 flex items-center justify-center text-[#D53E0F] shadow-inner">
+              <Calendar className="w-7 h-7" />
             </div>
             <div>
-              <h3 className="font-semibold text-lg text-white">Experience</h3>
-              <p className="text-sm text-white/50">4+ Years in Mobile & Web Development</p>
+              <h3 className="font-bold text-xl text-[#EED9B9]">Experience</h3>
+              <p className="text-sm text-[#EED9B9]/50 font-medium">Building Mobile Apps since 2021</p>
             </div>
           </motion.div>
         </section>
@@ -225,19 +251,23 @@ export default function App() {
         {/* Skills Section */}
         <section id="skills" className="mb-24">
           <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-10">
-            <div>
-              <h2 className="text-3xl font-bold mb-2 text-white">Technical Arsenal</h2>
-              <p className="text-white/50">The tools and technologies I use to bring ideas to life.</p>
-            </div>
-            <div className="flex bg-[#44444E]/50 p-1 rounded-xl border border-[#715A5A]/30 self-start">
+            <motion.div
+              initial={{ opacity: 0, x: -20 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true }}
+            >
+              <h2 className="text-4xl font-black mb-2 text-[#EED9B9]">Technical Arsenal</h2>
+              <p className="text-[#EED9B9]/50 font-medium uppercase tracking-widest text-xs">The craft I keep sharpening.</p>
+            </motion.div>
+            <div className="flex bg-[#9B0F06]/40 p-1.5 rounded-2xl border border-[#D53E0F]/20 self-start shadow-2xl backdrop-blur-md">
               {["All", "Mobile", "Backend", "Database"].map((tab) => (
                 <button
                   key={tab}
                   onClick={() => setActiveTab(tab.toLowerCase())}
-                  className={`px-4 py-1.5 rounded-lg text-sm font-medium transition-all ${
+                  className={`px-5 py-2 rounded-xl text-sm font-bold transition-all ${
                     activeTab === tab.toLowerCase() 
-                      ? "bg-[#D3DAD9] text-[#37353E] shadow-lg shadow-[#D3DAD9]/10" 
-                      : "text-white/40 hover:text-white"
+                      ? "bg-[#D53E0F] text-white shadow-xl shadow-[#D53E0F]/20" 
+                      : "text-[#EED9B9]/40 hover:text-[#EED9B9]"
                   }`}
                 >
                   {tab}
@@ -246,75 +276,90 @@ export default function App() {
             </div>
           </div>
 
-          <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-5 gap-4">
+          <motion.div 
+            layout
+            className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-5 gap-4"
+          >
             <AnimatePresence mode="popLayout">
-              {filteredSkills.map((skill) => (
+              {filteredSkills.map((skill, idx) => (
                 <motion.div
                   layout
-                  initial={{ opacity: 0, scale: 0.9 }}
+                  initial={{ opacity: 0, scale: 0.8 }}
                   animate={{ opacity: 1, scale: 1 }}
-                  exit={{ opacity: 0, scale: 0.9 }}
+                  exit={{ opacity: 0, scale: 0.8 }}
+                  transition={{ delay: idx * 0.05 }}
                   key={skill.name}
-                  className="p-4 rounded-xl bg-[#44444E]/20 border border-[#715A5A]/20 flex items-center gap-3 hover:border-white/50 transition-colors group"
+                  className="p-5 rounded-2xl bg-[#9B0F06]/10 border border-[#D53E0F]/10 flex items-center gap-4 hover:border-[#D53E0F] hover:bg-[#9B0F06]/20 transition-all group cursor-default shadow-lg"
                 >
-                  <div className="text-[#715A5A] group-hover:text-white transition-colors">
+                  <div className="text-[#D53E0F] group-hover:scale-110 transition-transform duration-300">
                     {skill.icon}
                   </div>
-                  <span className="font-medium text-sm text-white/80">{skill.name}</span>
+                  <span className="font-bold text-sm text-[#EED9B9]/90">{skill.name}</span>
                 </motion.div>
               ))}
             </AnimatePresence>
-          </div>
+          </motion.div>
         </section>
 
         {/* Projects Section */}
         <section id="projects" className="mb-32">
-          <div className="text-center mb-16">
-            <h2 className="text-4xl font-bold mb-4 text-white">Featured Projects</h2>
-            <p className="text-white/50 max-w-xl mx-auto">Focusing on complex state management and innovative solutions.</p>
-          </div>
+          <motion.div 
+            initial={{ opacity: 0 }}
+            whileInView={{ opacity: 1 }}
+            viewport={{ once: true }}
+            className="text-center mb-16"
+          >
+            <h2 className="text-5xl font-black mb-4 text-[#EED9B9] tracking-tighter">Featured Projects</h2>
+            <p className="text-[#EED9B9]/50 max-w-xl mx-auto font-medium">Bespoke mobile solutions with architectural precision.</p>
+          </motion.div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-10">
             {PROJECTS.map((project, idx) => (
               <motion.div 
                 key={project.title}
-                initial={{ opacity: 0, y: 30 }}
+                initial={{ opacity: 0, y: 50 }}
                 whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ delay: idx * 0.1 }}
-                className={`group rounded-3xl overflow-hidden border border-[#715A5A]/30 bg-[#44444E]/10 transition-all duration-500 hover:scale-[1.02] hover:bg-[#44444E]/20`}
+                viewport={{ once: true, margin: "-100px" }}
+                transition={{ duration: 0.6, delay: idx * 0.2 }}
+                className={`group rounded-[2.5rem] overflow-hidden border border-[#D53E0F]/20 bg-[#9B0F06]/5 transition-all duration-700 hover:border-[#D53E0F] hover:shadow-2xl hover:shadow-[#D53E0F]/10`}
               >
-                <div className="p-8 pb-4 flex justify-between items-start">
-                  <div className={`p-4 rounded-2xl bg-[#715A5A]/20 backdrop-blur-sm border border-[#715A5A]/30 shadow-inner text-white`}>
+                <div className="p-10 pb-5 flex justify-between items-start">
+                  <motion.div 
+                    whileHover={{ rotate: 10 }}
+                    className={`p-5 rounded-3xl bg-[#D53E0F]/10 backdrop-blur-xl border border-[#D53E0F]/20 shadow-2xl text-[#D53E0F]`}
+                  >
                     {project.icon}
-                  </div>
-                  <div className="flex gap-2">
-                    <a href={project.github} target="_blank" rel="noopener noreferrer" className="p-2 rounded-full bg-[#37353E]/50 border border-[#715A5A]/30 text-white/60 hover:text-white transition-colors">
-                      <Github className="w-5 h-5" />
-                    </a>
+                  </motion.div>
+                  <div className="flex gap-3">
+                    <motion.a 
+                      whileHover={{ scale: 1.1, backgroundColor: "#D53E0F" }}
+                      href={project.github} target="_blank" rel="noopener noreferrer" className="p-3 rounded-2xl bg-[#5E0006] border border-[#D53E0F]/20 text-[#EED9B9]/60 hover:text-white transition-all shadow-xl"
+                    >
+                      <Github className="w-6 h-6" />
+                    </motion.a>
                   </div>
                 </div>
 
-                <div className="p-8 pt-4">
-                  <h3 className="text-2xl font-bold mb-3 group-hover:text-white transition-colors text-white">{project.title}</h3>
-                  <p className="text-white/60 mb-6 leading-relaxed">
+                <div className="p-10 pt-5">
+                  <h3 className="text-3xl font-black mb-4 group-hover:text-[#D53E0F] transition-colors text-[#EED9B9]">{project.title}</h3>
+                  <p className="text-[#EED9B9]/60 mb-8 leading-relaxed font-medium">
                     {project.description}
                   </p>
 
-                  <div className="space-y-4 mb-8">
-                    <h4 className="text-xs uppercase tracking-widest text-white/40 font-bold">Core Highlights</h4>
-                    <ul className="grid grid-cols-1 gap-2">
+                  <div className="space-y-4 mb-10">
+                    <h4 className="text-xs uppercase tracking-[0.2em] text-[#D53E0F] font-black">Highlights</h4>
+                    <ul className="grid grid-cols-1 gap-3">
                       {project.features.map(feature => (
-                        <li key={feature} className="flex items-center gap-2 text-sm text-white/70">
-                          <ChevronRight className="w-4 h-4 text-white" /> {feature}
+                        <li key={feature} className="flex items-center gap-3 text-sm text-[#EED9B9]/70 font-semibold group-hover:translate-x-2 transition-transform duration-500">
+                          <ChevronRight className="w-5 h-5 text-[#D53E0F]" /> {feature}
                         </li>
                       ))}
                     </ul>
                   </div>
 
-                  <div className="flex flex-wrap gap-2 pt-4 border-t border-[#715A5A]/20">
+                  <div className="flex flex-wrap gap-2 pt-6 border-t border-[#D53E0F]/10">
                     {project.tech.map(t => (
-                      <span key={t} className="px-3 py-1 rounded-full bg-[#37353E] border border-[#715A5A]/30 text-xs font-mono text-white/60">
+                      <span key={t} className="px-4 py-1.5 rounded-full bg-[#5E0006] border border-[#D53E0F]/10 text-[10px] font-black uppercase tracking-widest text-[#EED9B9]/40 hover:text-[#EED9B9] cursor-default transition-colors">
                         {t}
                       </span>
                     ))}
@@ -327,28 +372,34 @@ export default function App() {
 
         {/* Education Section */}
         <section id="experience" className="mb-32">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-20">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-24">
             <div>
-              <h2 className="text-4xl font-bold mb-10 text-white">Educational Background</h2>
-              <div className="relative space-y-12">
-                <div className="absolute left-6 top-2 bottom-2 w-px bg-[#715A5A]/30" />
+              <motion.h2 
+                initial={{ opacity: 0, x: -30 }}
+                whileInView={{ opacity: 1, x: 0 }}
+                viewport={{ once: true }}
+                className="text-5xl font-black mb-12 text-[#EED9B9] tracking-tighter"
+              >
+                Academic Path
+              </motion.h2>
+              <div className="relative space-y-16">
+                <div className="absolute left-[26px] top-4 bottom-4 w-1 bg-[#D53E0F]/10" />
                 
                 {EDUCATION.map((edu, idx) => (
                   <motion.div 
                     key={edu.degree} 
-                    initial={{ opacity: 0, x: -20 }}
+                    initial={{ opacity: 0, x: -30 }}
                     whileInView={{ opacity: 1, x: 0 }}
                     viewport={{ once: true }}
-                    transition={{ delay: idx * 0.1 }}
-                    className="relative pl-12 group"
+                    transition={{ delay: idx * 0.2 }}
+                    className="relative pl-20 group"
                   >
-                    <div className="absolute left-[18px] top-1.5 w-3 h-3 rounded-full bg-[#715A5A] border-2 border-[#37353E] group-hover:bg-[#D3DAD9] group-hover:scale-150 transition-all z-10" />
-                    <div className="absolute left-[23px] -top-2 h-0 w-0 group-hover:h-full group-hover:w-px bg-[#D3DAD9]/30 transition-all duration-500" />
+                    <div className="absolute left-4 top-1 w-6 h-6 rounded-full bg-[#5E0006] border-4 border-[#D53E0F] group-hover:bg-[#D53E0F] group-hover:scale-125 transition-all duration-500 shadow-[0_0_20px_rgba(213,62,15,0.4)] z-10" />
                     
-                    <span className="text-sm font-semibold text-white/80 mb-2 block">{edu.period}</span>
-                    <h3 className="text-xl font-bold mb-1 text-white/90">{edu.degree}</h3>
-                    <p className="text-white/60 font-medium mb-3">{edu.institution}</p>
-                    <p className="text-white/40 text-sm leading-relaxed max-w-md">
+                    <span className="text-xs font-black uppercase tracking-widest text-[#D53E0F] mb-3 block">{edu.period}</span>
+                    <h3 className="text-2xl font-black mb-2 text-[#EED9B9] group-hover:text-white transition-colors">{edu.degree}</h3>
+                    <p className="text-[#EED9B9]/60 font-bold mb-4">{edu.institution}</p>
+                    <p className="text-[#EED9B9]/40 text-sm leading-relaxed max-w-lg italic font-medium">
                       {edu.description}
                     </p>
                   </motion.div>
@@ -357,98 +408,114 @@ export default function App() {
             </div>
 
             <div className="flex flex-col justify-center">
-              <div className="p-8 rounded-3xl bg-gradient-to-br from-[#44444E]/40 to-[#37353E] border border-[#715A5A]/30 relative shadow-2xl">
-                <div className="absolute top-0 right-0 p-8 opacity-5 text-white">
-                  <Cpu className="w-24 h-24" />
+              <motion.div 
+                whileHover={{ scale: 1.02 }}
+                className="p-10 rounded-[3rem] bg-gradient-to-br from-[#9B0F06]/30 to-[#5E0006] border border-[#D53E0F]/20 relative shadow-2xl overflow-hidden group"
+              >
+                <div className="absolute top-0 right-0 p-10 opacity-[0.03] text-white rotate-12 group-hover:rotate-45 transition-transform duration-1000">
+                  <Cpu className="w-48 h-48" />
                 </div>
                 
-                <h3 className="text-2xl font-bold mb-6 text-white">Development Roadmap</h3>
-                <div className="space-y-6">
-                  <div className="flex items-start gap-4 p-4 rounded-2xl bg-[#44444E]/20 border border-[#715A5A]/20">
-                    <div className="w-10 h-10 rounded-xl bg-white/10 flex items-center justify-center shrink-0">
-                      <span className="font-bold text-white">1</span>
+                <h3 className="text-3xl font-black mb-8 text-[#EED9B9] tracking-tight">The Development Loop</h3>
+                <div className="space-y-8">
+                  <motion.div whileHover={{ x: 10 }} className="flex items-start gap-6 p-6 rounded-[2rem] bg-[#9B0F06]/20 border border-[#D53E0F]/10 hover:bg-[#9B0F06]/30 transition-all">
+                    <div className="w-12 h-12 rounded-2xl bg-[#EED9B9]/10 flex items-center justify-center shrink-0 border border-[#EED9B9]/20">
+                      <span className="font-black text-[#EED9B9]">01</span>
                     </div>
                     <div>
-                      <h4 className="font-semibold mb-1 text-white/90">Architecture Planning</h4>
-                      <p className="text-sm text-white/40">Choosing the right state management (Bloc/GetX) and designing clean domain models.</p>
+                      <h4 className="font-bold text-xl mb-1 text-[#EED9B9]">Architecture First</h4>
+                      <p className="text-sm text-[#EED9B9]/40 font-medium leading-relaxed">Solid BLoC/Provider foundations over quick hacks.</p>
                     </div>
-                  </div>
+                  </motion.div>
 
-                  <div className="flex items-start gap-4 p-4 rounded-2xl bg-[#44444E]/20 border border-[#715A5A]/20">
-                    <div className="w-10 h-10 rounded-xl bg-white/10 flex items-center justify-center shrink-0">
-                      <span className="font-bold text-white">2</span>
+                  <motion.div whileHover={{ x: 10 }} className="flex items-start gap-6 p-6 rounded-[2rem] bg-[#9B0F06]/20 border border-[#D53E0F]/10 hover:bg-[#9B0F06]/30 transition-all">
+                    <div className="w-12 h-12 rounded-2xl bg-[#EED9B9]/10 flex items-center justify-center shrink-0 border border-[#EED9B9]/20">
+                      <span className="font-black text-[#EED9B9]">02</span>
                     </div>
                     <div>
-                      <h4 className="font-semibold mb-1 text-white/90">UI/UX Implementation</h4>
-                      <p className="text-sm text-white/40">Building pixel-perfect interfaces with Flutter's widget tree and custom painters.</p>
+                      <h4 className="font-bold text-xl mb-1 text-[#EED9B9]">Motion & Polish</h4>
+                      <p className="text-sm text-[#EED9B9]/40 font-medium leading-relaxed">Smooth custom painters and widget-level craftsmanship.</p>
                     </div>
-                  </div>
+                  </motion.div>
 
-                  <div className="flex items-start gap-4 p-4 rounded-2xl bg-[#44444E]/20 border border-[#715A5A]/20">
-                    <div className="w-10 h-10 rounded-xl bg-white/10 flex items-center justify-center shrink-0">
-                      <span className="font-bold text-white">3</span>
+                  <motion.div whileHover={{ x: 10 }} className="flex items-start gap-6 p-6 rounded-[2rem] bg-[#9B0F06]/20 border border-[#D53E0F]/10 hover:bg-[#9B0F06]/30 transition-all">
+                    <div className="w-12 h-12 rounded-2xl bg-[#EED9B9]/10 flex items-center justify-center shrink-0 border border-[#EED9B9]/20">
+                      <span className="font-black text-[#EED9B9]">03</span>
                     </div>
                     <div>
-                      <h4 className="font-semibold mb-1 text-white/90">Backend & API Sync</h4>
-                      <p className="text-sm text-white/40">Integrating RESTful APIs with Node.js/PHP and handling data persistence.</p>
+                      <h4 className="font-bold text-xl mb-1 text-[#EED9B9]">Data Integrity</h4>
+                      <p className="text-sm text-[#EED9B9]/40 font-medium leading-relaxed">High-performance Firebase and REST sync patterns.</p>
                     </div>
-                  </div>
+                  </motion.div>
                 </div>
-              </div>
+              </motion.div>
             </div>
           </div>
         </section>
 
         {/* Contact Section */}
         <section id="contact" className="mb-20">
-          <div className="relative rounded-[2rem] overflow-hidden p-1 bg-gradient-to-r from-[#37353E] via-[#715A5A] to-white">
-            <div className="bg-[#37353E] rounded-[1.9rem] p-8 md:p-16 flex flex-col items-center text-center">
-              <h2 className="text-4xl md:text-5xl font-bold mb-6 text-white">Let's work together</h2>
-              <p className="text-white/60 max-w-lg mb-12 text-lg">
-                I'm currently available for full-time opportunities and freelance projects. Whether you have a specific idea or just want to chat.
+          <motion.div 
+            whileInView={{ opacity: 1, scale: 1 }}
+            initial={{ opacity: 0, scale: 0.95 }}
+            viewport={{ once: true }}
+            className="relative rounded-[3rem] overflow-hidden p-[2px] bg-gradient-to-br from-[#D53E0F] via-[#9B0F06] to-white/20"
+          >
+            <div className="bg-[#5E0006] rounded-[2.9rem] p-10 md:p-20 flex flex-col items-center text-center backdrop-blur-3xl shadow-2xl">
+              <h2 className="text-5xl md:text-7xl font-black mb-8 text-[#EED9B9] tracking-tighter">Initiate Sync.</h2>
+              <p className="text-[#EED9B9]/60 max-w-xl mb-16 text-xl font-medium leading-relaxed">
+                Currently open for new challenges and collaborative mobile ecosystems. Let's build something that matters.
               </p>
               
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-4 w-full max-w-xl">
-                <a 
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-6 w-full max-w-2xl">
+                <motion.a 
+                  whileHover={{ scale: 1.05, borderColor: "#EED9B9" }}
                   href="mailto:ritesh.flutter@gmail.com" 
-                  className="p-4 rounded-2xl bg-[#44444E]/30 border border-[#715A5A]/30 flex items-center justify-center gap-3 hover:border-white transition-all font-semibold text-white"
+                  className="p-6 rounded-[2rem] bg-[#9B0F06]/20 border border-[#D53E0F]/20 flex items-center justify-center gap-4 transition-all font-black text-[#EED9B9] shadow-xl backdrop-blur-md"
                 >
-                  <Mail className="w-5 h-5" /> ritesh.flutter@gmail.com
-                </a>
-                <a 
+                  <Mail className="w-6 h-6 text-[#D53E0F]" /> ritesh.flutter@gmail.com
+                </motion.a>
+                <motion.a 
+                   whileHover={{ scale: 1.05, borderColor: "#EED9B9" }}
                    href="tel:+916202599162"
-                   className="p-4 rounded-2xl bg-[#44444E]/30 border border-[#715A5A]/30 flex items-center justify-center gap-3 hover:border-white transition-all font-semibold text-white"
+                   className="p-6 rounded-[2rem] bg-[#9B0F06]/20 border border-[#D53E0F]/20 flex items-center justify-center gap-4 transition-all font-black text-[#EED9B9] shadow-xl backdrop-blur-md"
                 >
-                  <Smartphone className="w-5 h-5" /> +91 6202599162
-                </a>
+                  <Smartphone className="w-6 h-6 text-[#D53E0F]" /> +91 6202599162
+                </motion.a>
               </div>
 
-              <div className="mt-12 flex gap-6">
-                <a href="https://github.com/riteshrawat999" target="_blank" rel="noopener noreferrer" className="text-[#715A5A] hover:text-white transition-colors">
-                  <Github className="w-6 h-6" />
-                </a>
-                <a href="https://linkedin.com/in/ritesh-flutter" target="_blank" rel="noopener noreferrer" className="text-[#715A5A] hover:text-white transition-colors">
-                  <Linkedin className="w-6 h-6" />
-                </a>
-                <a href="mailto:ritesh.flutter@gmail.com" className="text-[#715A5A] hover:text-white transition-colors">
-                   <Mail className="w-6 h-6" />
-                </a>
-                <a href="https://github.com/riteshrawat999" target="_blank" rel="noopener noreferrer" className="text-[#715A5A] hover:text-white transition-colors">
-                  <Globe className="w-6 h-6" />
-                </a>
+              <div className="mt-16 flex gap-10">
+                {[
+                  { icon: <Github className="w-7 h-7" />, url: "https://github.com/riteshrawat999" },
+                  { icon: <Linkedin className="w-7 h-7" />, url: "https://linkedin.com/in/ritesh-flutter" },
+                  { icon: <Mail className="w-7 h-7" />, url: "mailto:ritesh.flutter@gmail.com" },
+                  { icon: <Globe className="w-7 h-7" />, url: "https://github.com/riteshrawat999" }
+                ].map((social, i) => (
+                  <motion.a 
+                    key={i}
+                    whileHover={{ scale: 1.3, rotate: i % 2 === 0 ? 5 : -5 }}
+                    href={social.url} 
+                    target="_blank" 
+                    rel="noopener noreferrer"
+                    className="text-[#D53E0F] hover:text-[#EED9B9] transition-colors p-3 rounded-2xl bg-white/5 border border-white/5 hover:border-[#D53E0F] shadow-xl"
+                  >
+                    {social.icon}
+                  </motion.a>
+                ))}
               </div>
             </div>
-          </div>
+          </motion.div>
         </section>
-      </main>
+      </motion.main>
 
-      <footer className="max-w-7xl mx-auto px-6 py-12 border-t border-[#715A5A]/10 flex flex-col md:flex-row items-center justify-between gap-6 text-white/30 text-sm">
-        <p>© 2026 Ritesh Kumar. All rights reserved.</p>
-        <div className="flex gap-8">
-          <a href="#" className="hover:text-white">Privacy Policy</a>
-          <a href="#" className="hover:text-white">Terms of Service</a>
+      <footer className="max-w-7xl mx-auto px-6 py-12 border-t border-[#D53E0F]/10 flex flex-col md:flex-row items-center justify-between gap-6 text-[#EED9B9]/30 text-xs font-bold uppercase tracking-widest">
+        <p>© 2026 Ritesh Kumar. Crafted with Code.</p>
+        <div className="flex gap-10">
+          <motion.a whileHover={{ textDecoration: "underline" }} href="#" className="hover:text-[#EED9B9] transition-colors">Privacy</motion.a>
+          <motion.a whileHover={{ textDecoration: "underline" }} href="#" className="hover:text-[#EED9B9] transition-colors">Terms</motion.a>
         </div>
       </footer>
     </div>
+
   );
 }
