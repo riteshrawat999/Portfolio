@@ -99,7 +99,7 @@ export default function App() {
             <div className="w-8 h-8 rounded-lg bg-[#F3F4F4] flex items-center justify-center shadow-lg shadow-[#F3F4F4]/20">
               <Code2 className="w-5 h-5 text-[#2C2C2C]" />
             </div>
-            <span className="font-bold text-lg tracking-tight text-[#F3F4F4]">Work</span>
+            <span className="font-bold text-lg tracking-tight text-[#F3F4F4]">Portfolio</span>
           </motion.div>
           
           <div className="hidden md:flex items-center gap-8">
@@ -115,13 +115,16 @@ export default function App() {
             ))}
           </div>
 
-          <motion.button
+          <motion.a
             whileHover={{ scale: 1.05, backgroundColor: "#853953" }}
             whileTap={{ scale: 0.95 }}
+            href="https://wa.me/916202599162?text=Hi%20Ritesh,%20I%20saw%20your%20portfolio%20and%20would%20like%20to%20discuss%20a%20Flutter%20development%20opportunity%20with%20you."
+            target="_blank"
+            rel="noopener noreferrer"
             className="px-4 py-2 rounded-full bg-[#F3F4F4] text-[#2C2C2C] text-sm font-bold shadow-lg shadow-[#F3F4F4]/10 hover:text-white transition-all"
           >
             Hire Me
-          </motion.button>
+          </motion.a>
         </div>
       </nav>
 
@@ -491,12 +494,8 @@ export default function App() {
         </section>
       </motion.main>
 
-      <footer className="max-w-7xl mx-auto px-6 py-12 border-t border-[#853953]/10 flex flex-col md:flex-row items-center justify-between gap-6 text-[#F3F4F4]/30 text-xs font-bold uppercase tracking-widest">
-        <p>© 2026 Ritesh Kumar. Crafted with Code.</p>
-        <div className="flex gap-10">
-          <motion.a whileHover={{ textDecoration: "underline" }} href="#" className="hover:text-[#F3F4F4] transition-colors">Privacy</motion.a>
-          <motion.a whileHover={{ textDecoration: "underline" }} href="#" className="hover:text-[#F3F4F4] transition-colors">Terms</motion.a>
-        </div>
+      <footer className="max-w-7xl mx-auto px-6 py-12 border-t border-[#853953]/10 flex flex-col items-center gap-4 text-[#F3F4F4]/30 text-xs font-bold uppercase tracking-widest text-center">
+        <p>© 2026 Ritesh Kumar • Flutter Developer Portfolio • Built with passion and precision</p>
       </footer>
     </div>
 
