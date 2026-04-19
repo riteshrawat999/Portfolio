@@ -99,7 +99,7 @@ export default function App() {
             <div className="w-8 h-8 rounded-lg bg-[#F3F4F4] flex items-center justify-center shadow-lg shadow-[#F3F4F4]/20">
               <Code2 className="w-5 h-5 text-[#2C2C2C]" />
             </div>
-            <span className="font-bold text-lg tracking-tight text-[#F3F4F4]">Portfolio</span>
+            <span className="font-bold text-lg tracking-tight text-[#F3F4F4]">Work</span>
           </motion.div>
           
           <div className="hidden md:flex items-center gap-8">
