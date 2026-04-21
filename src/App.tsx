@@ -49,6 +49,7 @@ const PROJECTS = [
     features: ["Real-time Detection", "Optimized Image Processing", "State Management: GetX", "On-device AI"],
     github: "https://github.com/riteshrawat999/face_recognition"
   },
+
   {
     title: "Weather Application",
     description: "Built a real-time weather app with comprehensive forecasting using OpenWeather API. Implemented robust error handling.",
@@ -58,6 +59,7 @@ const PROJECTS = [
     features: ["State Management: Bloc", "JSON Parsing", "Responsive UI", "Real-time updates"],
     github: "https://github.com/riteshrawat999/weather_app"
   }
+  
 ];
 
 const EDUCATION = [
@@ -475,7 +477,7 @@ export default function App() {
                   { icon: <Github className="w-7 h-7" />, url: "https://github.com/riteshrawat999" },
                   { icon: <Linkedin className="w-7 h-7" />, url: "https://linkedin.com/in/ritesh-flutter" },
                   { icon: <Mail className="w-7 h-7" />, url: "mailto:ritesh.flutter@gmail.com" },
-                  { icon: <Globe className="w-7 h-7" />, url: "https://github.com/riteshrawat999" }
+                  { icon: <Globe className="w-7 h-7" />, url: "https://alterimg.in/" }
                 ].map((social, i) => (
                   <motion.a 
                     key={i}
